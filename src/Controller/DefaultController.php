@@ -32,4 +32,15 @@ class DefaultController extends AbstractController
         //dump($beerRepository); die('');
         return $this->json($beerRepository->findAll());
     }
+
+    /**
+     * @Route("/beer/{id}", name="beer2")
+     * @param BeerRepository $beerRepository
+     * @param int $id
+     * @return JsonResponse
+     */
+    public function OneBeer(BeerRepository $beerRepository, int $id)
+    {
+        return $this->json($beerRepository->find($id));
+    }
 }
